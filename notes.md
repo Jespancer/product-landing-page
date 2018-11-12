@@ -31,3 +31,16 @@ Make a mediaqueries for when width is 750 or less pixels
 only one item per row
 
 Record me writing HTML and CSS, upload to YouTube and use that as my iframe video.
+
+12.11.2018:
+
+to do:
+Mediaquery for high width screens: margins left and right.
+
+Get the colors right.
+
+the twitter and github icons closer to center.
+
+continue buttons hover.
+
+write the text
