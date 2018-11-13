@@ -1,9 +1,9 @@
 /* Variables */
 :root {
-  --primary: #ffcc00;
-  --dark: #634f00;
-  --light: #ffdf63;
-  --shadow: ;
+  --primary: #98E1F9;
+  --dark: #001319;
+  --light: #DCF6FE;
+  --shadow: 2px 2px 4px rgba(3, 167, 211, 0.8);
 }
 
 html {
@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background: var(--light);
+  background: var(--primary);
   margin: 0.5em;
 }
 
@@ -21,16 +21,16 @@ a {
   color: var(--dark);
 }
 
-
 /* Header */
 #header {
   display: grid;
   grid-template-columns: 4em 1fr 1fr;
-  background: var(--primary);
+  background: var(--light);
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  box-shadow: var(--shadow);
 }
 
 #title {
@@ -55,11 +55,10 @@ a {
   background: var(--dark);
   color: var(--light);
   padding: 1em;
-  margin: ;
 }
 
-.nav-link:hover {
-  background: var(--light);
+.nav-link:hover, .continue:hover {
+  background: var(--primary);
   color: var(--dark);
 }
 
@@ -77,47 +76,41 @@ a {
 .content {
   display: flex;
   flex-direction: row;
-  background: var(--primary);
+  background: var(--light);
   padding: 1em;
   margin: 0.5em;
+  box-shadow: var(--shadow);
 }
 
-h2 {
+h1, h2 {
   text-align: center;
+}
+
+#about {
+  flex-direction: column;
 }
 
 .left-item {
   padding-right: 1em;
 }
 
-#profilepic {
-  height: 13vw;
-}
-
-
 #services {
   background: none;
   padding: 0;
   margin: 0 auto;
-  width: 66%;
-}
-
-#personal-brand-website {
-  margin-right: 1em;
-  margin-left: 1em;
+  width: 80%;
+  box-shadow: none;
 }
 
 .service {
   width: 33.3%;
-  background: var(--primary);
+  background: var(--light);
   padding: 1em;
   margin: 0.5em;
   text-align: center;
+  box-shadow: var(--shadow);
 }
 
-p {
-  text-align: left;
-}
 
 .continue {
   background: var(--dark);
@@ -159,16 +152,14 @@ footer {
 
 #github {
   font-size: 1.5em;
-  color: #333;
-  justify-self: left;
-  margin-left: 1em;
+  color: #000;
+  justify-self: right;
 }
 
 #twitter {
   font-size: 1.5em;
   color: #00aced;
-  justify-self: right;
-  margin-right: 1em;
+  justify-self: left;
 }
 
 #copyright {
@@ -176,4 +167,34 @@ footer {
   line-height: 1.5em;
   margin-right: 1em;
   margin-left: 1em;
+}
+
+/* Media Queries */
+@media (max-width: 750px) {
+  #header {
+    grid-template-columns: 3em 1fr;
+  }
+  #nav-bar {
+    flex-direction: column;
+    justify-self: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100%;
+    text-align: center;
+  }
+  .wrapper {
+    width: 100%;
+    margin-top: 13em;
+  }
+  .content {
+    flex-direction: column;
+  }
+  #services {
+    width: 100%;
+  }
+  .service {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1em;
+  }
 }
