@@ -3,7 +3,7 @@
   --primary: #98E1F9;
   --dark: #001319;
   --light: #DCF6FE;
-  --shadow: 2px 2px 4px rgba(3, 167, 211, 0.8);
+  --shadow: 0 0 5px var(--primary);
 }
 
 html {
@@ -12,8 +12,8 @@ html {
 }
 
 body {
-  background: var(--primary);
-  margin: 0.5em;
+  background-image: linear-gradient(to bottom left, var(--primary), black);
+  margin: 0;
 }
 
 a {
@@ -25,12 +25,11 @@ a {
 #header {
   display: grid;
   grid-template-columns: 4em 1fr 1fr;
-  background: var(--light);
+  background: linear-gradient(to right, var(--primary), rgb(220, 246, 254, 0.6));
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  box-shadow: var(--shadow);
 }
 
 #title {
@@ -51,15 +50,18 @@ a {
   justify-self: right;
 }
 
-.nav-link {
-  background: var(--dark);
-  color: var(--light);
+.nav-link,
+.continue,
+#submit {
+  color: var(--dark);
   padding: 1em;
 }
 
-.nav-link:hover, .continue:hover {
-  background: var(--primary);
-  color: var(--dark);
+.nav-link:hover,
+.continue:hover,
+#submit:hover {
+  background: rgb(0, 19, 25, 0.6);
+  color: var(--light);
 }
 
 /* Content */
@@ -68,7 +70,7 @@ a {
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  margin-top: 3.5em;
+  margin-top: 3em;
   line-height: 1.4em;
   width: 66vw;
 }
@@ -76,22 +78,47 @@ a {
 .content {
   display: flex;
   flex-direction: row;
-  background: var(--light);
   padding: 1em;
-  margin: 0.5em;
-  box-shadow: var(--shadow);
+  justify-content: space-between;
+  border-radius: 0.1em;
+  background: rgb(220, 246, 254, 0.6);
 }
 
-h1, h2 {
+h1,
+h2,
+#title,
+#about-text,
+#copyright {
   text-align: center;
+  font-family: Roboto, sans-serif;
+  font-weight: normal;
 }
 
-#about {
+h1 {
+  margin-top: 3em;
+  margin-bottom: 2em;
+  font-size: 4em;
+}
+
+#about-text {
   flex-direction: column;
+  font-size: 1.25em;
+  background: rgb(220, 246, 254, 0.2);
+  padding: 1em;
+  margin: 0;
+}
+
+#about-p-2 {
+  margin-top: 3em;
 }
 
 .left-item {
   padding-right: 1em;
+}
+
+#survey-form {
+  justify-content: flex-start;
+  background: rgb(220, 246, 254, 0.7);
 }
 
 #services {
@@ -103,19 +130,43 @@ h1, h2 {
 }
 
 .service {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 33.3%;
-  background: var(--light);
-  padding: 1em;
-  margin: 0.5em;
-  text-align: center;
-  box-shadow: var(--shadow);
+  background: rgb(220, 246, 254, 0.7);
+  padding: .5em;
+  border-radius: 0.1em;
 }
 
+h4 {
+  text-align: center;
+}
+
+.lower {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.price {
+  margin-right: 0.25em;
+  margin-bottom: 0;
+  background: rgb(220, 246, 254, 0.4);
+  padding: 0.3em;
+}
+
+#business-website {
+  background: rgb(220, 246, 254, 0.6);
+}
 
 .continue {
-  background: var(--dark);
-  color: var(--light);
-  padding: 0.5em;
+  background: var(--primary);
+  color: var(--dark);
+  border-radius: 0.1em;
+  padding: 0.3em;
+  margin: 0;
 }
 
 #form {
@@ -133,17 +184,27 @@ h1, h2 {
   margin: auto;
   margin-bottom: 1em;
   width: 20em;
+  border-style: none;
+  box-shadow: var(--shadow);
+  border-radius: 0.1em;
 }
 
 #submit {
   width: 5em;
-  margin: auto;
+  align-self: center;
+  background: var(--primary);
+  border-style: none;
+  font-size: 1em;
+  padding: 0.3em;
+  box-shadow: var(--shadow);
+  border-radius: 0.1em;
 }
 
 /* Footer */
 footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 1em;
 }
 
 .fa:hover {
@@ -169,11 +230,17 @@ footer {
   margin-left: 1em;
 }
 
-/* Media Queries */
+/* Media Query */
 @media (max-width: 750px) {
+  body {
+    background-image: linear-gradient(to bottom left, var(--primary), rgb(20, 20, 20));
+  }
+
   #header {
     grid-template-columns: 3em 1fr;
+    position: relative;
   }
+
   #nav-bar {
     flex-direction: column;
     justify-self: center;
@@ -182,19 +249,27 @@ footer {
     width: 100%;
     text-align: center;
   }
+
+  h1 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 3em;
+  }
+
   .wrapper {
     width: 100%;
-    margin-top: 13em;
   }
+
   .content {
     flex-direction: column;
   }
+
   #services {
     width: 100%;
   }
+
   .service {
     width: 90%;
     margin: auto;
-    margin-bottom: 1em;
   }
 }
